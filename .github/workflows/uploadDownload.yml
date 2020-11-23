@@ -6,8 +6,7 @@ jobs:
     steps:
       - name: mkfile
         run: echo "hello" > thisisfile.txt
-      - name: turnip-talk-docker
-          uses: actions/upload-artifact@v2.2.1
+        uses: actions/upload-artifact@v2.2.1
           with:
             name: file
             path: thisisfile.txt
