@@ -6,10 +6,12 @@ jobs:
     steps:
       - name: mkfile
         run: echo "hello" > thisisfile.txt
+
+      - name: upload
         uses: actions/upload-artifact@v2.2.1
-          with:
-            name: file
-            path: thisisfile.txt
+        with:
+          name: file
+          path: thisisfile.txt
 
   echo:
     needs: build
