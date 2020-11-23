@@ -1,0 +1,25 @@
+name: Upload-Download-test
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    - name: mkfile
+      run: echo "hello" > thisisfile.txt
+    - name: turnip-talk-docker
+        uses: actions/upload-artifact@v2.2.1
+        with:
+          name: file
+          path: thisisfile.txt
+
+  echo:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download docker image from build
+        id: download
+        uses: actions/download-artifact@v2.0.6
+        with:
+          name: file
+
+      - name: ls
+        run: ls "${{steps.download.outputs.download-path}}
