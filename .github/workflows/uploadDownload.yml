@@ -24,4 +24,4 @@ jobs:
           name: file
 
       - name: ls
-        run: ls "${{steps.download.outputs.download-path}}
+        run: ls ${{steps.download.outputs.download-path}}
